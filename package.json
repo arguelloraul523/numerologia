@@ -8,11 +8,20 @@
     "start": "node server.js",
     "dev": "node --watch server.js"
   },
-  "keywords": ["numerologia", "express", "mongodb", "jwt", "gemini"],
+  "keywords": [
+    "numerologia",
+    "express",
+    "mongodb",
+    "jwt",
+    "gemini"
+  ],
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.3",
     "mongoose": "^8.6.0"
   }
 }
