@@ -10,10 +10,10 @@ async function connectDB() {
 
     await mongoose.connect(uri);
 
-    console.log(' MongoDB Atlas conectado correctamente');
-    console.log(' Base de datos:', mongoose.connection.db.databaseName);
+    console.log('MongoDB conectado correctamente');
+    console.log('Base de datos:', mongoose.connection.db.databaseName);
   } catch (error) {
-    console.error(' Error al conectar a MongoDB:', error.message);
+    console.error('Error al conectar a MongoDB:', error.message);
     process.exit(1);
   }
 }
