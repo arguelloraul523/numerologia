@@ -1,3 +1,6 @@
+// Fase 1: punto de entrada. Conecta a Mongo y luego levanta Express.
+// Fase 5: se agrega el manejo de unhandledRejection para que un error
+// asincrono no capturado no tumbe el servidor en silencio.
 require('dotenv').config();
 
 const app = require('./src/app');

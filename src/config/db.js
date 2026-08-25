@@ -1,3 +1,5 @@
+// Fase 1: conexion a MongoDB Atlas usando la variable MONGO_URI del .env.
+// Esta funcion se llama una sola vez, al arrancar el servidor (ver server.js).
 const mongoose = require('mongoose');
 
 async function connectDB() {

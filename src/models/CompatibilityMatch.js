@@ -1,35 +1,17 @@
+// Fase 2-a: esquema de la coleccion CompatibilityMatches.
+// user_a es siempre quien hace la peticion, user_b es el otro usuario a comparar.
+// puntaje e interpretacion_ia se calculan en Fase 4.
 const mongoose = require('mongoose');
 
 const CompatibilityMatchSchema = new mongoose.Schema(
   {
-    user_a: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true,
-    },
-    user_b: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true,
-    },
-    puntaje: {
-      type: Number,
-      required: true,
-      min: 0,
-      max: 100,
-    },
-    interpretacion_ia: {
-      type: String,
-      required: true,
-    },
-    fecha: {
-      type: Date,
-      default: Date.now,
-    },
+    user_a: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    user_b: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    puntaje: { type: Number, required: true, min: 0, max: 100 },
+    interpretacion_ia: { type: String, required: true },
+    fecha: { type: Date, default: Date.now },
   },
-  {
-    collection: 'CompatibilityMatches',
-  }
+  { collection: 'CompatibilityMatches' }
 );
 
 module.exports = mongoose.model('CompatibilityMatch', CompatibilityMatchSchema);

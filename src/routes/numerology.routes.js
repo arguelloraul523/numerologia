@@ -1,3 +1,5 @@
+// Fase 2-b: rutas base de numerología.
+// Fase 2-c: se agrega el middleware protect (requieren JWT).
 const express = require('express');
 const router = express.Router();
 const { protect } = require('../middlewares/auth.middleware');

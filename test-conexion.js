@@ -1,3 +1,5 @@
+// Fase 1: script para probar MONGO_URI de forma aislada, sin levantar Express.
+// Uso: node test-conexion.js
 require('dotenv').config();
 const mongoose = require('mongoose');
 

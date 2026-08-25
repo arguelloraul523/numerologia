@@ -1,13 +1,15 @@
+// Fase 2-c: middleware que protege rutas verificando el JWT del header
+// Authorization: Bearer <token>. Si es valido, deja el payload en req.user
+// (req.user.id), que despues usan los controladores de numerology,
+// readings y compatibility para saber de que usuario se trata.
 const jwt = require('jsonwebtoken');
+const ApiError = require('../utils/ApiError');
 
 function protect(req, res, next) {
   const authHeader = req.headers.authorization;
 
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
-    return res.status(401).json({
-      success: false,
-      message: 'No se proporcionó un token de autenticación',
-    });
+    return next(new ApiError(401, 'No se proporcionó un token de autenticación'));
   }
 
   const token = authHeader.split(' ')[1];
@@ -17,10 +19,9 @@ function protect(req, res, next) {
     req.user = payload;
     next();
   } catch (error) {
-    return res.status(401).json({
-      success: false,
-      message: 'Token inválido o expirado',
-    });
+    // jwt.verify lanza JsonWebTokenError o TokenExpiredError,
+    // que el errorHandler de Fase 5 ya sabe traducir a 401.
+    next(error);
   }
 }
 
